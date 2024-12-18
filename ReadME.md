@@ -52,17 +52,17 @@ raw_df: A raw dataframe containing all data from the API response.
 final_df: A cleaned dataframe with selected columns for database insertion.
 
 * Parameters:
-1- fromDate (String): The starting date of the query in YYYY-MM-DD format.
-2- toDate (String): The ending date of the query in YYYY-MM-DD format.
+** fromDate (String): The starting date of the query in YYYY-MM-DD format.
+** toDate (String): The ending date of the query in YYYY-MM-DD format.
 
 * Returns:
 Dictionary:
 {'raw_df': raw_df, 'final_df': final_df}
 
 * Processing Steps:
-1- Calls get_response to fetch data.
-2- Normalizes the JSON response into a dataframe.
-3- Cleans and reorders the dataframe for further processing.
+** Calls get_response to fetch data.
+** Normalizes the JSON response into a dataframe.
+** Cleans and reorders the dataframe for further processing.
 
 ---
 # `long_period_parser` and `db_jobs`
@@ -71,13 +71,13 @@ Dictionary:
 *Description:
 Handles queries for date ranges exceeding the API's 2000-record limit by splitting the date range into individual days and querying the API day by day.
 
-*Parameters:
-1- fromDate (String): Starting date in YYYY-MM-DD format.
-1- toDate (String): Ending date in YYYY-MM-DD format.
-3- final_temp (String): Path for saving the temporary "final" Excel file.
-4- detailed_temp (String): Path for saving the temporary "detailed" Excel file.
-5- final_full (String): Path for saving the full "final" Excel file.
-6- detailed_full (String): Path for saving the full "detailed" Excel file.
+* Parameters:
+** fromDate (String): Starting date in YYYY-MM-DD format.
+** toDate (String): Ending date in YYYY-MM-DD format.
+** final_temp (String): Path for saving the temporary "final" Excel file.
+** detailed_temp (String): Path for saving the temporary "detailed" Excel file.
+** final_full (String): Path for saving the full "final" Excel file.
+** detailed_full (String): Path for saving the full "detailed" Excel file.
 
 *Returns
 None
@@ -90,8 +90,8 @@ Processes an Excel file, consolidates data across sheets, and updates a database
 path (String): Path to the Excel file containing the data to process.
 
 * Steps:
-1- Reads all sheets from the Excel file into a single dataframe.
-2- Cleans and prepares the dataframe:
-3- Removes duplicate rows based on reportId.
-4- Fills NaN values in boolean columns (isOldKap and isLate) and converts them to integers.
-5- Escapes problematic characters
+** Reads all sheets from the Excel file into a single dataframe.
+** Cleans and prepares the dataframe:
+** Removes duplicate rows based on reportId.
+** Fills NaN values in boolean columns (isOldKap and isLate) and converts them to integers.
+** Escapes problematic characters
