@@ -212,7 +212,7 @@ def db_jobs(path):
       Status = 0
 
       if ReportId not in existent_ids:
-        con.execute(text("""INSERT INTO KAPDB.dbo.KapFirms_test
+        con.execute(text("""INSERT INTO DB_test_table
                         (ReportId,ReportClass,CreateDat,FirmStockCode,FirmName,IsOldKap,
                         Subject,Summary,RelatedStocks,RuleTypeTerm,IsLate,Status) 
                         VALUES ({ReportId}, '{ReportClass}', '{CreateDat}', '{FirmStockCode}', '{FirmName}', {IsOldKap},
