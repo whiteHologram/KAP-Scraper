@@ -15,14 +15,14 @@ Formats the current date and time into a string based on the specified case.
 * description
  Generates a list of dates between two given dates, inclusive.
 
-* Parameters
+* Parameters:
 fromDate (String)
 toDate (String)
 
 * Returns
 List of Strings: A list of dates in the format YYYY-MM-DD, spanning from fromDate to toDate (inclusive).
 
-* Behavior
+* Behavior:
 Parses the input date strings into datetime objects.
 Iterates through each day from fromDate to toDate (inclusive) and appends the corresponding date string to a list.
 Returns the list of dates.
@@ -46,20 +46,20 @@ toDate (String): The ending date of the query in YYYY-MM-DD format.
 Response Object: The raw response from the KAP API.
 
 ### `parse_response` 
-* Description
+* Description:
 Calls get_response to fetch data for a given date range and processes the response into two dataframes:
 raw_df: A raw dataframe containing all data from the API response.
 final_df: A cleaned dataframe with selected columns for database insertion.
 
-* Parameters
+* Parameters:
 1- fromDate (String): The starting date of the query in YYYY-MM-DD format.
 2- toDate (String): The ending date of the query in YYYY-MM-DD format.
 
-* Returns
+* Returns:
 Dictionary:
 {'raw_df': raw_df, 'final_df': final_df}
 
-* Processing Steps
+* Processing Steps:
 1- Calls get_response to fetch data.
 2- Normalizes the JSON response into a dataframe.
 3- Cleans and reorders the dataframe for further processing.
@@ -68,10 +68,10 @@ Dictionary:
 # `long_period_parser` and `db_jobs`
 ## Overview
 ### `long_period_parser`
-*Description
+*Description:
 Handles queries for date ranges exceeding the API's 2000-record limit by splitting the date range into individual days and querying the API day by day.
 
-*Parameters
+*Parameters:
 1- fromDate (String): Starting date in YYYY-MM-DD format.
 1- toDate (String): Ending date in YYYY-MM-DD format.
 3- final_temp (String): Path for saving the temporary "final" Excel file.
@@ -83,13 +83,13 @@ Handles queries for date ranges exceeding the API's 2000-record limit by splitti
 None
 
 ### `db_jobs`
-* Description
+* Description:
 Processes an Excel file, consolidates data across sheets, and updates a database table with the results.
 
-* Parameters
+* Parameters:
 path (String): Path to the Excel file containing the data to process.
 
-* Steps
+* Steps:
 1- Reads all sheets from the Excel file into a single dataframe.
 2- Cleans and prepares the dataframe:
 3- Removes duplicate rows based on reportId.
