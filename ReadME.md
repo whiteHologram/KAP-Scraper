@@ -10,7 +10,7 @@ These two utility functions handle date and time-related operations.
 
 ---
 
-### **Function Signature**
+### **Functions**
 
 ````python
 def clean_date(df, toDate):
