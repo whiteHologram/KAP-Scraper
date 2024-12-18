@@ -5,8 +5,28 @@
 The `clean_date` function is designed to clean and standardize the `publishDate` column in a Pandas DataFrame. It adjusts dates expressed in relative terms (e.g., "Bugün" for "Today" and "Dün" for "Yesterday") to absolute dates, based on the reference date provided as `toDate`.
 These two utility functions handle date and time-related operations.
 
-1. **`datetime_str`:** Formats the current date and time into a string based on the specified case.
-2. **`split_period`:** Generates a list of dates between two given dates, inclusive.
+### `datetime_str`
+
+Formats the current date and time into a string based on the specified case.
+
+
+### `split_period`
+
+* description
+ Generates a list of dates between two given dates, inclusive.
+
+* Parameters
+fromDate (String)
+toDate (String)
+
+* Returns
+List of Strings: A list of dates in the format YYYY-MM-DD, spanning from fromDate to toDate (inclusive).
+
+* Behavior
+Parses the input date strings into datetime objects.
+Iterates through each day from fromDate to toDate (inclusive) and appends the corresponding date string to a list.
+Returns the list of dates.
+   
 
 ---
 
@@ -38,6 +58,11 @@ final_df: A cleaned dataframe with selected columns for database insertion.
 * Returns
 Dictionary:
 {'raw_df': raw_df, 'final_df': final_df}
+
+* Processing Steps
+1- Calls get_response to fetch data.
+2- Normalizes the JSON response into a dataframe.
+3- Cleans and reorders the dataframe for further processing.
 
 ---
 # `long_period_parser` and `db_jobs`
